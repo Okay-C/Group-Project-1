@@ -1,0 +1,27 @@
+<h2>Available Blog Posts</h2>
+<table>
+  <thead>
+    <tr><th>Title</th><th>Text</th><th>Actions</th></tr>
+  </thead>
+  <tbody>
+    <% blogs.forEach(blog => { %>
+      <tr>
+        <td><%= blog.Title %></td>
+        <td><%= blog.Text %></td>
+        <td>
+          <!-- Edit link -->
+          <a href="/blogs/edit/<%= blog._id %>">Edit</a>
+
+          <!-- Delete form -->
+          <form action="/blogs/delete/<%= blog._id %>" method="POST" style="display:inline;">
+            <button type="submit" onclick="return confirm('Are you sure you want to delete this blog post?');">Delete</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<div>
+  <a href="/" class="btn btn-secondary">Back to Blog List/Creation</a>
+</div>
