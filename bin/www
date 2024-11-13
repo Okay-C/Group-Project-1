@@ -1,58 +1,43 @@
-#!/usr/bin/env node
+// Names: Mishaal.G and Casey.P
+// Date: Nov.12.2024
+// Class: Web and Script Programming
+// Purpose: This sets up the HTTP server and starts it. It also sets up the routes and error handling.
 
-/**
- * Module dependencies.
- */
-
+//This imports  main Express app and the modules we need
 var app = require('../app');
 var debug = require('debug')('project-1:server');
 var http = require('http');
 
-/**
- * Get port from environment and store in Express.
- */
-
+// Port setting and HTTP server creation with express
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
-
-/**
- * Create HTTP server.
- */
-
 var server = http.createServer(app);
 
-/**
- * Listen on provided port, on all network interfaces.
- */
-
+// Starts the server and listens on the port specified
 server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+server.on('error', onError); // Connects the error handler
+server.on('listening', onListening); // Attaches listening handler
 
-/**
- * Normalize a port into a number, string, or false.
- */
 
+// Port number is normalized to a string, number or false
 function normalizePort(val) {
-  var port = parseInt(val, 10);
+  var port = parseInt(val, 10); // Port for valuing  to a  integer 
 
   if (isNaN(port)) {
-    // named pipe
+    // If a number isnt returned as a its given "pipe" name
     return val;
   }
 
   if (port >= 0) {
-    // port number
+    // If valuid port number is there returns it
     return port;
   }
 
-  return false;
+  return false; //If not then return as a false
 }
 
-/**
- * Event listener for HTTP server "error" event.
- */
 
+// Checks if bind is a port number or a pipe name
 function onError(error) {
   if (error.syscall !== 'listen') {
     throw error;
@@ -62,11 +47,11 @@ function onError(error) {
     ? 'Pipe ' + port
     : 'Port ' + port;
 
-  // handle specific listen errors with friendly messages
+  // Handles the specific listen errors with messages
   switch (error.code) {
     case 'EACCES':
       console.error(bind + ' requires elevated privileges');
-      process.exit(1);
+      process.exit(1); 
       break;
     case 'EADDRINUSE':
       console.error(bind + ' is already in use');
@@ -77,10 +62,8 @@ function onError(error) {
   }
 }
 
-/**
- * Event listener for HTTP server "listening" event.
- */
 
+// Event listener for the HTTP servers listening event
 function onListening() {
   var addr = server.address();
   var bind = typeof addr === 'string'
@@ -88,3 +71,5 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+//End of program
