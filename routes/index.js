@@ -1,7 +1,7 @@
 // Names: Mishaal.G and Casey.P
 // Date: Nov.12.2024
 // Class: Web and Script Programming
-// Purpose: This is responsible for rendering the main page and exporting it.
+// Purpose: This is responsible for defining the route for the homepage
 
 var express = require('express'); // Imports express for module creation
 var router = express.Router(); // New router instance creation 
