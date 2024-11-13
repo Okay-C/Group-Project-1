@@ -1,8 +1,13 @@
+// Names: Mishaal.G and Casey.P
+// Date: Nov.12.2024
+// Class: Web and Script Programming
+// Purpose: This is responsible for creating the blog routes and exporting them.
+
 const express = require('express');
 const router = express.Router();
 const Blog = require('../models/blog');
 
-// Display all blog posts (GET /blogs)
+// Display all blog posts of the blogs
 router.get('/', async (req, res) => {
   try {
     const blogs = await Blog.find({ isActive: true }); // Fetch active blogs from MongoDB
@@ -81,3 +86,5 @@ router.post('/delete/:id', async (req, res) => {
 });
 
 module.exports = router;
+
+// End of program
